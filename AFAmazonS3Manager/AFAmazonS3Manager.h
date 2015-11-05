@@ -20,7 +20,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "AFHTTPRequestOperationManager.h"
+#import <AFNetworking/AFHTTPRequestOperationManager.h>
 #import "AFAmazonS3RequestSerializer.h"
 
 /**
@@ -58,7 +58,7 @@
  @param path The path to be appended to the HTTP client's base URL and used as the request URL.
  @param success A block object to be executed when the request operation finishes successfully. This block has no return value and takes a single argument: the response object from the server.
  @param failure A block object to be executed when the request operation finishes unsuccessfully, or that finishes successfully, but encountered an error while parsing the response data. This block has no return value and takes a single argument: the `NSError` object describing error that occurred.
- 
+
  @return The operation that was enqueued on operationQueue
  */
 - (AFHTTPRequestOperation *)enqueueS3RequestOperationWithMethod:(NSString *)method
@@ -76,7 +76,7 @@
 
  @param success A block object to be executed when the request operation finishes successfully. This block has no return value and takes a single argument: the response object from the server.
  @param failure A block object to be executed when the request operation finishes unsuccessfully, or that finishes successfully, but encountered an error while parsing the response data. This block has no return value and takes a single argument: the `NSError` object describing error that occurred.
- 
+
  @return The operation that was enqueued on operationQueue
  */
 - (AFHTTPRequestOperation *)getServiceWithSuccess:(void (^)(id responseObject))success
@@ -93,7 +93,7 @@
  @param bucket The S3 bucket to get. Must not be `nil`.
  @param success A block object to be executed when the request operation finishes successfully. This block has no return value and takes a single argument: the response object from the server.
  @param failure A block object to be executed when the request operation finishes unsuccessfully, or that finishes successfully, but encountered an error while parsing the response data. This block has no return value and takes a single argument: the `NSError` object describing error that occurred.
- 
+
  @return The operation that was enqueued on operationQueue
  */
 - (AFHTTPRequestOperation *)getBucket:(NSString *)bucket
@@ -107,7 +107,7 @@
  @param parameters The parameters to be encoded and set in the request HTTP body.
  @param success A block object to be executed when the request operation finishes successfully. This block has no return value and takes a single argument: the response object from the server.
  @param failure A block object to be executed when the request operation finishes unsuccessfully, or that finishes successfully, but encountered an error while parsing the response data. This block has no return value and takes a single argument: the `NSError` object describing error that occurred.
- 
+
  @return The operation that was enqueued on operationQueue
  */
 - (AFHTTPRequestOperation *)putBucket:(NSString *)bucket
@@ -121,7 +121,7 @@
  @param bucket The S3 bucket to be delete. Must not be `nil`.
  @param success A block object to be executed when the request operation finishes successfully. This block has no return value and takes a single argument: the response object from the server.
  @param failure A block object to be executed when the request operation finishes unsuccessfully, or that finishes successfully, but encountered an error while parsing the response data. This block has no return value and takes a single argument: the `NSError` object describing error that occurred.
- 
+
  @return The operation that was enqueued on operationQueue
  */
 - (AFHTTPRequestOperation *)deleteBucket:(NSString *)bucket
@@ -150,7 +150,7 @@
  @param progress A block object to be called when an undetermined number of bytes have been downloaded from the server. This block has no return value and takes three arguments: the number of bytes read since the last time the download progress block was called, the total bytes read, and the total bytes expected to be read during the request, as initially determined by the expected content size of the `NSHTTPURLResponse` object. This block may be called multiple times, and will execute on the main thread.
  @param success A block object to be executed when the request operation finishes successfully. This block has no return value and takes a single argument: the response object from the server.
  @param failure A block object to be executed when the request operation finishes unsuccessfully, or that finishes successfully, but encountered an error while parsing the response data. This block has no return value and takes a single argument: the `NSError` object describing error that occurred.
- 
+
  @return The operation that was enqueued
  */
 - (AFHTTPRequestOperation *)getObjectWithPath:(NSString *)path
@@ -166,7 +166,7 @@
  @param progress A block object to be called when an undetermined number of bytes have been downloaded from the server. This block has no return value and takes three arguments: the number of bytes read since the last time the download progress block was called, the total bytes read, and the total bytes expected to be read during the request, as initially determined by the expected content size of the `NSHTTPURLResponse` object. This block may be called multiple times, and will execute on the main thread.
  @param success A block object to be executed when the request operation finishes successfully. This block has no return value and takes a single argument: the response object from the server.
  @param failure A block object to be executed when the request operation finishes unsuccessfully, or that finishes successfully, but encountered an error while parsing the response data. This block has no return value and takes a single argument: the `NSError` object describing error that occurred.
- 
+
  @return The operation that was enqueued
  */
 - (AFHTTPRequestOperation *)getObjectWithPath:(NSString *)path
@@ -203,7 +203,7 @@
  @param progress A block object to be called when an undetermined number of bytes have been uploaded to the server. This block has no return value and takes three arguments: the number of bytes written since the last time the upload progress block was called, the total bytes written, and the total bytes expected to be written during the request, as initially determined by the length of the HTTP body. This block may be called multiple times, and will execute on the main thread.
  @param success A block object to be executed when the request operation finishes successfully. This block has no return value and takes a single argument: the response object from the server.
  @param failure A block object to be executed when the request operation finishes unsuccessfully, or that finishes successfully, but encountered an error while parsing the response data. This block has no return value and takes a single argument: the `NSError` object describing error that occurred.
- 
+
  @return The operation that was enqueued on operationQueue
 
  @discussion `destinationPath` is relative to the bucket's root, and will create any intermediary directories as necessary. For example, specifying "/a/b/c.txt" will create the "/a" and / or "/a/b" directories within the bucket, if they do not already exist, and upload the source file as "c.txt" into "/a/b".
@@ -221,7 +221,7 @@
  @param path The path for the remote file to be deleted. Must not be `nil`.
  @param success A block object to be executed when the request operation finishes successfully. This block has no return value and takes a single argument: the response object from the server.
  @param failure A block object to be executed when the request operation finishes unsuccessfully, or that finishes successfully, but encountered an error while parsing the response data. This block has no return value and takes a single argument: the `NSError` object describing error that occurred.
- 
+
  @return The operation that was enqueued on operationQueue
  */
 - (AFHTTPRequestOperation *)deleteObjectWithPath:(NSString *)path
